@@ -54,3 +54,10 @@ print("공분산 수치 : ", covariance)
 weight= covariance/variance 
 print("가중치(기울기)",weight)
 print("가중치(coef_)",model.coef_)
+
+
+# 4. 가중치의 값을 계산한 후 절편의 값을 계산
+#  정답 데이터(y)의 평균 - (입력데이터(X)의 평균 *가중치)
+bias = np.mean(y) - (np.mean(X) * weight)
+print("절편",bias)
+print("절편(intercept_)",model.intercept_)
