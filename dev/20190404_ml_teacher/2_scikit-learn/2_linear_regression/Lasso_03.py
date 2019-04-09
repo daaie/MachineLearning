@@ -24,37 +24,35 @@ train_test_split(X, y, random_state=1)
 print("len(X_train) : ", len(X_train))
 print("len(X_test) : ", len(X_test))
 
-from sklearn.linear_model import LinearRegression, Ridge
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
 
 lr_model = LinearRegression().fit(X_train,y_train)
 # 알파의 기본은 1임
 # 특성이 많으면 많응ㄹ수록 
 ridge_model = Ridge(0.088).fit(X_train,y_train)
+lasso_model = Lasso(0.005, max_iter = 1000000).fit(X_train,y_train)
+# 너무 작은 알파를 줘서 max_iterations가 부족한 경우가 있을 수 있음.
 
 print("LR 학습 모델의 score메소드 :", lr_model.score(X_train,y_train))
 print("Ridge 학습 모델의 score메소드 :", ridge_model.score(X_train,y_train))
+print("Lasso 학습 모델의 score메소드 :", lasso_model.score(X_train,y_train))
 
 print("=" * 30)
 
 print("LR 테스트 모델의 score메소드 :", lr_model.score(X_test,y_test))
 print("Ridge 테스트 모델의 score메소드 :", ridge_model.score(X_test,y_test))
+print("Lasso 테스트 모델의 score메소드 :", lasso_model.score(X_test,y_test))
 
 ###############그래프를 그려보아요###########################################
 from matplotlib import pyplot as plt
 coef_range = list(range (1, len(ridge_model.coef_) + 1))
 plt.plot(coef_range, lr_model.coef_, 'r^')
 plt.plot(coef_range, ridge_model.coef_, 'bo')
+plt.plot(coef_range, lasso_model.coef_, 'go')
 
 
 plt.hlines(0,1,len(ridge_model.coef_) + 1,
            colors = 'y', linestyles = 'dashed')
 plt.show()
-
-
-plt.plot(X.values[:,0], y, 'bo')
-plt.plot(X.values[:,1], y, 'ro')
-plt.plot(X.values[:,2], y, 'mo')
-plt.plot(X.values[:,3], y, 'go')
-plt.plot(X.values[:,4], y, 'yo')
 
 
