@@ -27,8 +27,11 @@ print("모델의 예측 결과 : {}".format(model.predict(X)[:5]))
 # 각 클래스에 해당할 확률 값이 반환되며,
 # 그중 가장 큰 값으로 예측하게 됨
 print("모델의 예측 결과(decision_function) : {}".format(model.decision_function(X)[:5]))
+# decision function에서 가장 큰값을 해당 클래스로 봄. 
+# 양수인경우가 맞는건데 양수중에서도ㅓ 0에가까우면 안됨.
 
-
+print("모델의 예측결과 : {}".format(model.predict([[-6,5]])))
+print("모델의 예측 결과(decision_function) : {}".format(model.decision_function(X)[:5]))
 
 
 

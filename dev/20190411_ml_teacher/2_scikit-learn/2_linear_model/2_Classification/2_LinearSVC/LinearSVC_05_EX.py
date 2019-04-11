@@ -18,14 +18,14 @@ print(y_df.value_counts() / len(y_df))
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = \
-    train_test_split(X_df.values, y_df.values, 
+    train_test_split(X_df.values, y_df.values, stratify=y_df.values
                      test_size=0.3, random_state=1)
 
 
 # from sklearn.svm import linearSVR (회귀분석용ㅋㅋㅋ)
 from sklearn.svm import LinearSVC
 #svm_model = LinearSVC(C=1,penalty="l1", dual=False, max_iter=200000).fit(X_train, y_train)
-svm_model = LinearSVC(C=0.1,loss='hinge', max_iter=200000).fit(X_train, y_train)
+svm_model = LinearSVC(C=1,loss='hinge', max_iter=200000).fit(X_train, y_train)
 
 print("훈련 세트 점수(SVC) : ", svm_model.score(X_train, y_train))
 print("=" * 30)
