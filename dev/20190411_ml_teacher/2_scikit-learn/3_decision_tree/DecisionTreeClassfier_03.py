@@ -35,6 +35,7 @@ print("테스트 데이터 정확도 :", model.score(X_test, y_test))
 #  - http ://www.graphviz.org/
 #  2. Path 등록
 #  - graphviz 설치된 디렉토리의 bin 경로
+#  - 사용자 변수, 시스템 변수 모두에 Path 변수 경로 추가.
 #  3. graphviz 파이썬 모듈 설치
 #  - pip install graphviz
 
