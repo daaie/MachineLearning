@@ -34,7 +34,11 @@ from sklearn.svm import SVC
 # - 스케일이 조정되지 않은 특성에서 좋은 결과를 반환
 # - 특성 데이터를 전처리한 경우 scale과 auto는 동일함
 # - 기본값은 auto
-svc = SVC(gamma='auto')
+
+# 감마는 마진의 크기를 결정하는 하이퍼 파라메터.
+# 감마가 작을수록 마진이 커짐 .->데이터가 잘섞임. 학습데이터에 과적합 된 경우 일반화 성능을 높임.
+# 감마가 클수록 마진이 작아짐.-> 학습데이터에 피팅.
+svc = SVC(gamma=0.001, random_state=30)
 svc.fit(X_train, y_train)
 
 print("훈련 세트 정확도: {:.2f}".format(svc.score(X_train, y_train)))
@@ -42,6 +46,13 @@ print("테스트 세트 정확도: {:.2f}".format(svc.score(X_test, y_test)))
 
 
 
+from sklearn.svm import LinearSVC
+
+svc = LinearSVC(C=0.1, max_iter=50000, random_state=30)
+svc.fit(X_train, y_train)
+
+print("훈련 세트 정확도: {:.2f}".format(svc.score(X_train, y_train)))
+print("테스트 세트 정확도: {:.2f}".format(svc.score(X_test, y_test)))
 
 
 

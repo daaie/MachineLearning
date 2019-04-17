@@ -15,9 +15,14 @@ import pandas as pd
 
 iris = pd.read_csv("../../data/iris.csv")
 print(iris.info())
+# 인포에서 오브젝트로 되어있으면 거의 문자열임.
 print(iris.head())
 
 # pandas 모듈을 사용하여 범주형 데이터를 수치 데이터로 변환 방법
+# factorize 메소드
+# 특정 열에 존재하는 모든 데이터의 중복을 제거한 후
+# 각 값에 대해서 정수값을 매핑하여 반환하는 메소드
+# 반환값 -> 정수배열 각 정수에 해당되는 실제 데이터 
 #encoded, categories = iris.Species.factorize()
 #print(encoded)
 #print(categories)
@@ -49,17 +54,25 @@ encoder = OneHotEncoder()
 # iris 품종에 대한 일차원 배열을 2차원 배열로 변환하여
 # 처리합니다.
 iris_one_hot = encoder.fit_transform(iris.Species.values.reshape(-1,1))
-#print(type(iris_one_hot))
-#print(iris_one_hot)
+print(type(iris_one_hot)) # sparse 희소행렬 
+print(iris_one_hot) # 희소행렬 저장시키는 방법 -> 희소행렬이 빠르다.
 print(iris_one_hot.toarray())
 # 원핫인코딩으로 추출된 품종 정보를 추출
 print(encoder.categories_)
 
+# inverse_transform 메서ㅓ드를 사용하여
+# 원핫인코딩의 값을 실제 값으로 반환.
+# 주의ㅅ사항 - 2차원 배열로 전달해야 함.
 
+print(encoder.inverse_transform([[0,0,1]]))
 
-
-
-
+# 원핫인코딩 
+# 특성내부가 동일한 가중치를 가지고있는데
+# 대소를 가지게 되면 ㅇ안됨...그냥 카테고라이즈하면 취미3이 큰값이 됨 가중치를 곱하면 이건뭐..
+# hobby 특성 : 취미1, 취미2, 취미 3
+#              1       0       0
+#              0       1       0
+#              0       0       1
 
 
 

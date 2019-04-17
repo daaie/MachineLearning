@@ -13,6 +13,7 @@
 
 # 특성 데이터의 확장 - 다항식 변환
 # - PolynomialFeatures 클래스
+# 방정식의 차원을 높여줌. 1차방정식의 형태를->n차 방정식의 형태로 
 # - 입력값  x 를 다항식으로 변환하는 기능을 제공
 
 # 파라메터 정보
@@ -27,4 +28,4 @@ print(X)
 
 pf = PolynomialFeatures(degree=2)
 #pf = PolynomialFeatures(degree=2, include_bias=False)
-print(pf.fit_transform(X))
+print(pf.fit_transform(X)) # [절편, x, x^2]

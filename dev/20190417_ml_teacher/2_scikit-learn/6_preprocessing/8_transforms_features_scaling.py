@@ -19,13 +19,17 @@
 # 이러한 경우 사이킷 런의 Scaler 클래스를 이용하여 
 # 각각의 특성 데이터들을 일정 범위로 스케일링할 수 있음
 
-#from sklearn.preprocessing import MinMaxScaler
-#data = [[-1,2], 
-#        [-0.5,6], 
-#        [0,10], 
-#        [1,18]]#
-#scaler = MinMaxScaler()
-#print(scaler.fit_transform(data))
+from sklearn.preprocessing import MinMaxScaler
+data = [[-1,2], 
+        [-0.5,6], 
+        [0,10], 
+        [1,18]]#
+scaler = MinMaxScaler()
+print(scaler.fit_transform(data))
+# 최댓값은 1로 최소값은 0으로 
+# 보통 핏은 학습데이터에 맞추고
+# 트랜스폼은 테스트데이터에만 맞춤.
+# !!!!!!!!!!그래서 테스트데이터는 0과 1을 벗어나기도한다.!!!!!!!!이거 중요 !!!!!!!!!!!!!!!!!!!!
 
 import pandas as pd
 
@@ -33,6 +37,8 @@ import pandas as pd
 # 처리할 수 있는 MinMaxScaler 클래스
 # - 각 열의 데이터를 0 ~ 1 사이로 압축하는 역할
 # - 반드시 수치 데이터만을 전달해야 함
+# 이 민맥스 스칼라는 이상치 데이터가있는 경우 조심한다
+# 가끔 튀는 값이들어오는 장비의 경우 엄청큰데이터가 민이나 맥스로 잡힐 수 있기때문.
 from sklearn.preprocessing import MinMaxScaler
 data = pd.read_csv("../../data/score.csv")
 data.drop("name", axis=1, inplace=True)
@@ -48,6 +54,7 @@ print("=" * 20)
 # - 각 열의 데이터들이 최소값과 최대값이 한정되지 않음
 # - 일반적으로 StandardScaler 정규화를 처리하는 것이
 #   데이터 분석 성능이 높아짐
+# 얘도 이상치 데이터가있는 경우 조심한다 분산과 평균이 망가지므로 
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 print(scaler.fit_transform(data))
@@ -55,6 +62,7 @@ print(scaler.fit_transform(data))
 # 중앙값(median)과 IQR(interquartile range)를 사용하여 
 # 아웃라이어의 영향을 최소화하며 변환할 수 있는 
 # RobustScaler 클래스
+# 이상치가 있는 데이터셋의 경우 얘를 쓴다.
 from sklearn.preprocessing import RobustScaler
 scaler = RobustScaler()
 print(scaler.fit_transform(data))

@@ -41,8 +41,14 @@ print(diabetes.head())
 # 수정할 수 있는 기능을 제공하는 클래스
 
 # 사이킷 런의 모든 예측기 클래스들은
-# fit, transform, fit_transform(클래스에 따라 제공되지 않을 수도 있음) 
+##########fit############################
+# fit + transform = fit_transform(클래스에 따라 제공되지 않을 수도 있음) 
 # 메소드를 제공
+# 메소드 내에 지우는건없음.
+# 변환기는 분할한 다음에 하는거임.
+# 스플릿전에 데이터 전처리를하면 분할에 전체 데이터가 예측될 수있음.
+# 핏은 학습데이터에 대해서만 함. 학습데이터에대해 핏_트랜스폼.
+# 테스트데이터에서는 트랜스폼만 부름.
 from sklearn.impute import SimpleImputer
 
 # 결측 데이터를 해당 컬럼의 중간값으로 대체할 수 있는
@@ -57,6 +63,7 @@ imputer = SimpleImputer(strategy="median")
 # 결측 데이터를 fill_value 매개변수에 지정한 값으로
 # 대체할 수 있는 사이킷런 변환 클래스의 객체 생성
 #imputer = SimpleImputer(strategy="constant", fill_value=0.25)
+print(diabetes.shape)
 
 print(imputer.fit_transform(diabetes)[:5])
 

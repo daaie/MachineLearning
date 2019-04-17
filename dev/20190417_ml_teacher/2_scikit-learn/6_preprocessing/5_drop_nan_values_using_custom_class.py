@@ -37,6 +37,7 @@ class DataFrameDropNaN (BaseEstimator, TransformerMixin) :
     def fit(self, X, y=None) :
         return self
     
+    # 이 X로 들어오는건 데이터프레임이든 넘파이배열이든 상관없는데 일반적으로 넘파이배열임.
     def transform(self, X) :
         # 결측데이터를 제거하기 위한 pandas 메소드
         # dropna 메소드를 사용하여 NaN 데이터 삭제
@@ -62,6 +63,7 @@ import numpy as np
 diabetes.iloc[2, 1] = np.nan
 print(diabetes.info())
 print(diabetes.head())
+print(diabetes.shape)
 
 dropNaN = DataFrameDropNaN()
 dropNaN.fit(diabetes)

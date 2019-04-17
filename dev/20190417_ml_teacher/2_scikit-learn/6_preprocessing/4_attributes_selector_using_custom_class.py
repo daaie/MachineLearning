@@ -23,6 +23,9 @@
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 
+# fit_transform 안만들어도 되는 조건 = TransformerMixin 
+# TransformerMixin 내부에 fit_transform 을 만들어줌.
+
 class DataFrameSelector (BaseEstimator, TransformerMixin) :
     def __init__(self, attr_names) :
         # 데이터프레임에서 추출할 컬럼명의 리스트

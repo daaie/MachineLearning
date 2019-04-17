@@ -39,6 +39,7 @@ print(diabetes.head())
 # inplace 매개변수를 True 로 지정하면
 # 실제 수정된 결과를 해당 데이터프레임에 
 # 적용하고 어떤값도 반환하지 않습니다.
+# pandas 는 점찍고 컬럼이름 해도됨.(공백은 있으면안됨)
 mean_A = diabetes.A.mean()
 diabetes.A.fillna(mean_A, inplace=True)        
 

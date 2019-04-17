@@ -56,6 +56,7 @@ print(diabetes.head())
 print(diabetes.describe())
 
 #changeNaN = DataFrameChangeNaN(0.3)
+#changeNaN = DataFrameChangeNaN(0.3, attr_name='A')
 changeNaN = DataFrameChangeNaN(0.3, attr_name='A')
 
 changeNaN.fit(diabetes)
