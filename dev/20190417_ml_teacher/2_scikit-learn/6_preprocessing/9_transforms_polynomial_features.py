@@ -29,3 +29,10 @@ print(X)
 pf = PolynomialFeatures(degree=2)
 #pf = PolynomialFeatures(degree=2, include_bias=False)
 print(pf.fit_transform(X)) # [절편, x, x^2]
+
+
+# 날씨같은 데이터를 예측할때는 다차원이어야함.
+# 차수를 올리는 것은 정형화와 상관이없다..
+# 보통 회기분석을 위한 것.
+
+# fit 은 어쨋든 학습데이터에만 해야함.
