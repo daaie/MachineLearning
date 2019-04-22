@@ -7,7 +7,7 @@ Created on Mon Apr 22 21:28:00 2019
 
 # data 디렉토리에 있는 sms.csv 파일을 분서갛여 결과를 확인
 # 말뭉치 변환에 TfidfVectorizer 클래스를 활용하세요.
-
+# CountVectorizer 를 0~1사이에 압축해서 값을 표현함.
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
