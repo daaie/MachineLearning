@@ -70,9 +70,9 @@ print("매개변수 그리드:\n{}".format(param_grid))
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
-model = LogisticRegression(solver ='lbfgs')
+model = LogisticRegression(solver ='lbfgs',max_iter=10000)
 kfold = KFold(n_splits=10, shuffle=True)
-grid_model = GridSearchCV(model, param_grid = param_grid, cv=kfold, n_jobs=-1)
+grid_model = GridSearchCV(model, param_grid = param_grid, cv=kfold, n_jobs=-1, return_train_score=True).fit(X_train,y_train)
 
 
 print("테스트 세트 점수: {:.2f}".format(grid_model.score(X_test, y_test)))
