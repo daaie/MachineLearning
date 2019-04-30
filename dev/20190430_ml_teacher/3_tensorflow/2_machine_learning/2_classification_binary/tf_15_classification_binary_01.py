@@ -45,6 +45,10 @@ loss_sum = loss_0 + loss_1
 # 오차를 제곱한 후, 평균값을 계산
 loss = tf.reduce_mean(tf.square(loss_sum))
 
+# 위의 오차식을 한 줄의 실행문으로 작성하는 예제
+loss = tf.reduce_mean(tf.square(
+        y * -tf.log(h) + (1 - y) * -tf.log(1 - h)))
+
 optimizer = tf.train.AdamOptimizer()
 train = optimizer.minimize(loss)
 
@@ -53,8 +57,12 @@ train = optimizer.minimize(loss)
 predicted = h >= 0.5
 predicted_cast = tf.cast(predicted, tf.float32)
 
+#accuracy1 = tf.equal(predicted_cast, y)
+#accuracy2 = tf.cast(accuracy1, tf.float32)
+#accuracy3 = tf.reduce_mean(accuracy2)
+
 accuracy = tf.reduce_mean(
-        tf.cast(tf.equal(predicted_cast, h), tf.float32))
+        tf.cast(tf.equal(predicted_cast, y), tf.float32))
 
 with tf.Session() as sess :
     sess.run(tf.global_variables_initializer())
@@ -66,7 +74,11 @@ with tf.Session() as sess :
 #    print(sess.run(predicted, feed_dict=feed_dict))
 #    print(sess.run(predicted_cast, feed_dict=feed_dict))
     
-    for step in range(1, 1001) :
+#    print(sess.run(accuracy1, feed_dict=feed_dict))
+#    print(sess.run(accuracy2, feed_dict=feed_dict))
+#    print(sess.run(accuracy3, feed_dict=feed_dict))
+    
+    for step in range(1, 20001) :
         sess.run(train, feed_dict=feed_dict)
         
         if step % 10 == 0 :
