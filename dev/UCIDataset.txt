@@ -1,0 +1,27 @@
+<분류모델>
+
+20190410
+logisticRegression
+- 선형 방적식에 의한것
+
+20190411
+support vector machine
+- iter를 반복하면서 최적의 라인을 찾아감.
+- 반드시 정규화가 선행되어야함.
+
+C:\Users\502-23\Anaconda3
+
+-- 기존 콘다에 설치되있는거 내 가상환경에
+conda activate ml
+conda deactivate
+conda create -n ml python=3.6
+conda remove --name ml --allssh 
+conda install spyder
+
+-- 파이썬 모듈 설치 pip
+pip install numpy pandas matplotlib scikit-learn
+
+graphviz.msi 받고
+activate ml
+pip install graphviz
+C:\Program Files (x86)\Graphviz2.38\bin
