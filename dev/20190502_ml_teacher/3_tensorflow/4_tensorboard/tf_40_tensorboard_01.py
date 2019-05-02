@@ -27,6 +27,7 @@ tf.summary.scalar("sum_tensor", sum_tensor)
 
 # 연산텐서
 sum_add = tf.assign(sum_tensor, tf.add(sum_tensor, 1.5))
+#sum_add = tf.assign(sum_tensor, tf.multiply(sum_tensor, 1.5))
 
 with tf.Session() as sess :
     sess.run(tf.global_variables_initializer())
@@ -37,7 +38,7 @@ with tf.Session() as sess :
     merged_summary = tf.summary.merge_all()
     # 텐서보드를 사용하여 시각화하기 위한 정보를
     # 출력할 수 있는 객체
-    writer = tf.summary.FileWriter('./logs/tf_40_tensorboard_01')
+    writer = tf.summary.FileWriter('../logs/tf_40_tensorboard_01')
     # 현재 텐서플로우 모델을 출력
     writer.add_graph(sess.graph)
     

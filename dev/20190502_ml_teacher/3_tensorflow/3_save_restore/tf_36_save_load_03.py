@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("./MNIST/", one_hot=True)
+mnist = input_data.read_data_sets("../../../data/MNIST/", one_hot=True)
 
 import tensorflow as tf
 
@@ -44,8 +44,8 @@ iter_num = int(mnist.train.num_examples / batch_size)
 import os
 import sys
 # tf.train.Saver를 이용해서 모델과 파라미터를 저장합니다.
-SAVER_DIR = "save"
-saver = tf.train.Saver()
+SAVER_DIR = "../save"
+saver = tf.train.Saver(max_to_keep=10)
 checkpoint_path = os.path.join(SAVER_DIR, "mnist")
 # save 디렉토리에 저장된 checkpoint 파일을 확인하여
 # 저장된 파일이 있는지 확인

@@ -1,0 +1,6 @@
+model_checkpoint_path: "mnist-20"
+all_model_checkpoint_paths: "mnist-16"
+all_model_checkpoint_paths: "mnist-17"
+all_model_checkpoint_paths: "mnist-18"
+all_model_checkpoint_paths: "mnist-19"
+all_model_checkpoint_paths: "mnist-20"

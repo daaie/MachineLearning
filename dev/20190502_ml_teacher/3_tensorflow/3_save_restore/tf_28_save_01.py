@@ -19,7 +19,7 @@
 # tf.train.Saver() 를 활용
 
 import tensorflow as tf
-
+# 텐서 저장할 때 이름값 지정해주는게 좋음 (텐서 변수명과 동일한 게 좋음.)
 w1 = tf.Variable(tf.random_normal(shape=[2]), name='w1')
 w2 = tf.Variable(tf.random_normal(shape=[5]), name='w2')
 
@@ -29,11 +29,14 @@ sess = tf.Session()
 
 sess.run(tf.global_variables_initializer())
 
+print("w1 :", sess.run(w1))
+print("w2 :", sess.run(w2))
+
 # TensorFlow 모델을 저장
 # 세션 객체를 저장하며, 매개변수로 저장할 경로 및 
 # 파일 명을 전달
 # saver.save(세션객체, '저장경로 및 파일명')
-saver.save(sess, './save/model')
+saver.save(sess, '../save/sessModel')
 
 
 

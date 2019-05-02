@@ -33,8 +33,10 @@ sess.run(tf.global_variables_initializer())
 # 세션 객체를 저장하며, 매개변수로 저장할 경로 및 
 # 파일 명을 전달
 # saver.save(세션객체, '저장경로 및 파일명', global_step=인덱스정보)
-saver.save(sess, './save/model', global_step=100)
+saver.save(sess, '../save/model', global_step=100)
 
+# 파일 5개까지 저장됨 1,2,3,4,5 -> 2,3,4,5,6
+# max_to_keep=10  디폴트가 5인가봄 ㅋ
 
 
 

@@ -34,7 +34,10 @@ sess.run(tf.global_variables_initializer())
 # 파일 명을 전달
 # write_meta_graph : 모델 그래프의 저장 여부를 결정하는 매개변수
 # (모델 값만을 저장할 수도 있음)
-saver.save(sess, './save/model', 
+# write_meta_graph=False 텐서정보는 저장 안함 값만 저장.
+# write_meta_graph=False 일 경우 복원하는 파일에서는 동일한 이름을ㅇ 갖는 텐서 변수들을
+# 선언하고 있어야 함/. 
+saver.save(sess, '../save/model', 
            global_step=10000, write_meta_graph=False)
 
 

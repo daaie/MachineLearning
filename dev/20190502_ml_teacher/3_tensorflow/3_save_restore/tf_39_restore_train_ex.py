@@ -5,7 +5,7 @@
 # 추가적인 학습을 진행하고 학습의 결과를 저장하세요.
 
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("./MNIST/", one_hot=True)
+mnist = input_data.read_data_sets("../../../data/MNIST/", one_hot=True)
 
 import tensorflow as tf
 
@@ -45,8 +45,8 @@ epoches = 20
 batch_size = 100
 iter_num = int(mnist.train.num_examples / batch_size)
 
-SAVER_DIR = "save_mnist"
-checkpoint_path = "./save_mnist/mnist"
+SAVER_DIR = "../save_mnist"
+checkpoint_path = "../save_mnist/mnist"
 saver = tf.train.Saver()
 ckpt = tf.train.get_checkpoint_state(SAVER_DIR)
 

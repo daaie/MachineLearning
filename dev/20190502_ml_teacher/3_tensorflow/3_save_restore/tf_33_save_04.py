@@ -26,11 +26,12 @@ w2 = tf.Variable(tf.random_normal(shape=[5]), name='w2')
 # TensorFlow 모델의 저장하기 위한 객체 생성
 # 최대 10개의 저장 파일을 유지
 saver = tf.train.Saver(max_to_keep=10)
+# max_to_keep=10 
 sess = tf.Session()
 
 sess.run(tf.global_variables_initializer())
 
-saver.save(sess, './model/my_test_model', 
+saver.save(sess, '../save/my_test_model', 
            global_step=100, write_meta_graph=False)
 
 

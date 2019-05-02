@@ -70,7 +70,7 @@ with tf.Session() as sess :
     X_test_fit = scaler.transform(X_test)   
     
     merged_summary = tf.summary.merge_all()    
-    writer = tf.summary.FileWriter('./logs/tf_43_tensorboard_04')
+    writer = tf.summary.FileWriter('../logs/tf_43_tensorboard_04')
     writer.add_graph(sess.graph)
     
     for step in range(1,20001) :

@@ -22,7 +22,7 @@ feed_dict = {w1: 4.0, w2: 8.0}
 result = sess.run(w4, feed_dict=feed_dict)
 print(result)
 
-saver.save(sess, './save/model', global_step=10)
+saver.save(sess, '../save/model', global_step=10)
 
 
 

@@ -1,0 +1,2 @@
+model_checkpoint_path: "sessModel"
+all_model_checkpoint_paths: "sessModel"
