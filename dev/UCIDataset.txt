@@ -25,3 +25,6 @@ graphviz.msi 받고
 activate ml
 pip install graphviz
 C:\Program Files (x86)\Graphviz2.38\bin
+
+
+UCIDataSet / 캐글등에서 연습하장.
